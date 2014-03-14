@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Mask Demo</title>
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="angular-toggle-switch.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+	<script src="angular-toggle-switch.js"></script>
+	<script>
+		angular.module('demo', ['toggle-switch']);
+
+		function ctrl($scope) {
+			$scope.save = function() {
+				console.log('saved! ' + $scope.someModel);
+			};
+		};
+	</script>
+</head>
+<body ng-app="demo">
+	<div class="container">
+		<div class="row">
+			<h1>Angular Toogle Switch</h1>
+			<form name="form" ng-controller="ctrl">
+				<div>{{someModel}}</div>
+				<div>
+					<toggle-switch class="switch-xs" ng-model="someModel" on-label="Sim" off-label="Não" on-after-change="save()"><toggle-switch>
+				</div>
+				<br>
+				<div>
+					<toggle-switch class="switch-sm" ng-model="someModel" on-label="Sim" off-label="Não" on-color="success" off-color="danger"><toggle-switch>
+				</div>
+				<br>
+				<div>
+					<toggle-switch ng-model="someModel" on-label="Sim" off-label="Não"><toggle-switch>
+				</div>
+				<br>
+				<div>
+					<toggle-switch class="switch-lg" ng-model="someModel" on-label="Sim" off-label="Não" disabled="true"><toggle-switch>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>

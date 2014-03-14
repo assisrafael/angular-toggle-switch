@@ -13,7 +13,7 @@ angular.module('toggle-switch', [])
       knobLabel: '@',
       onAfterChange: '&'
     },
-    template: '<div class="switch" ng-click="toggle()" ng-class="{ \'disabled\': disabled }"><div ng-class="{\'switch-off\': !model, \'switch-on\': model, \'switch-animate\': !disabled}"><span class="switch-{{onColor || \'primary\'}}" ng-class="{ \'disabled\': disabled && !model }" ng-bind="onLabel"></span><span class="knob" ng-bind="knobLabel"></span><span class="switch-{{offColor || \'default\'}}" ng-bind="offLabel" ng-class="{ \'disabled\': disabled && model }"></span></div></div>',
+    templateUrl: 'angular-toogle-switch.html',
     controller: function($scope) {
       $scope.toggle = function toggle() {
         if(!$scope.disabled) {
@@ -49,4 +49,18 @@ angular.module('toggle-switch', [])
       });
     },
   };
+})
+.run(function($templateCache) {
+  $templateCache.put('angular-toogle-switch.html', 
+    '<div>'+
+      '<div class="switch" ng-click="toggle()" ng-hide="disabled">' +
+        '<div class="switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
+          '<span class="switch-{{onColor || \'primary\'}}" ng-bind="onLabel"></span>' +
+          '<span class="knob" ng-bind="knobLabel"></span>' +
+          '<span class="switch-{{offColor || \'default\'}}" ng-bind="offLabel"></span>' +
+        '</div>' +
+      '</div>' +
+      '<div ng-show="disabled">{{(model ? onLabel : offLabel)}}</div>' +
+    '</div>'
+  );
 });

@@ -52,15 +52,6 @@
 	line-height: normal;
 }
 
-.switch.disabled {
-	border: none;
-}
-
-.switch.disabled > div > span.knob,
-.switch.disabled > div > span.disabled {
-	display: none;
-}
-
 .switch span {
 	cursor: pointer;
 	display: inline-block;
@@ -101,10 +92,6 @@
 	left: -50%;
 }
 
-.switch.disabled .switch-off {
-  left: 0%;
-}
-
 .switch .swtich-left, .switch .switch-right {
 	z-index: 1;
 }
@@ -139,15 +126,4 @@
 .switch > div > span.switch-default {
 	color: #000;
 	background: #eeeeee;
-}
-
-.switch.disabled > div > span.switch-primary,
-.switch.disabled > div > span.switch-info,
-.switch.disabled > div > span.switch-success,
-.switch.disabled > div > span.switch-warning,
-.switch.disabled > div > span.switch-danger,
-.switch.disabled > div > span.switch-default {
-	color: #000;
-	background-color: transparent;
-	width: 100%;
 }
