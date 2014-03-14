@@ -5,7 +5,7 @@ angular.module('toggle-switch', [])
     replace: true,
     scope: {
       model: '=ngModel',
-      disabled: '@',
+      disabled: '=',
       onLabel: '@',
       onColor: '@',
       offLabel: '@',
@@ -13,7 +13,7 @@ angular.module('toggle-switch', [])
       knobLabel: '@',
       onAfterChange: '&'
     },
-    template: '<div class="switch" ng-click="toggle()" ng-class="{ \'disabled\': disabled }"><div class="switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}"><span class="switch-{{onColor || \'primary\'}}" ng-bind="onLabel"></span><span class="knob" ng-bind="knobLabel"></span><span class="switch-{{offColor || \'default\'}}" ng-bind="offLabel"></span></div></div>',
+    template: '<div class="switch" ng-click="toggle()" ng-class="{ \'disabled\': disabled }"><div ng-class="{\'switch-off\': !model, \'switch-on\': model, \'switch-animate\': !disabled}"><span class="switch-{{onColor || \'primary\'}}" ng-class="{ \'disabled\': disabled && !model }" ng-bind="onLabel"></span><span class="knob" ng-bind="knobLabel"></span><span class="switch-{{offColor || \'default\'}}" ng-bind="offLabel" ng-class="{ \'disabled\': disabled && model }"></span></div></div>',
     controller: function($scope) {
       $scope.toggle = function toggle() {
         if(!$scope.disabled) {
@@ -39,6 +39,10 @@ angular.module('toggle-switch', [])
       }
 
       element.bind('click', function() {
+        if(scope.disabled) {
+          return;
+        }
+
         if(typeof scope.onAfterChange === 'function') {
           scope.onAfterChange();  
         }
