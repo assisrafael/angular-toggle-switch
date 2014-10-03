@@ -1,58 +1,18 @@
-.switch {
-	display: inline-block;
-	cursor: pointer;
-	border-radius: 4px;
+.toggle-switch {
 	border: 1px solid;
-	border-color: #cccccc;
-	position: relative;
+	cursor: pointer;
+	display: inline-block;
 	text-align: left;
 	overflow: hidden;
 	line-height: 8px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-	vertical-align: middle;
-	min-width: 98px;
-	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	min-width: 100px;
 }
 
-.switch-xs {
-	min-width: 72px;
+.toggle-switch.disabled > div > span.knob {
+	background: #AAA;
 }
 
-.switch-xs > div > span {
-	padding-bottom: 4px;
-	padding-top: 4px;
-	font-size: 10px;
-	line-height: 9px;
-}
-
-.switch-sm {
-	min-width: 80px;
-}
-
-.switch-sm > div > span {
-	padding-bottom: 3px;
-	padding-top: 3px;
-	font-size: 12px;
-	line-height: 18px;
-}
-
-.switch-lg {
-	min-width: 120px;
-}
-
-.switch-lg > div > span {
-	padding-bottom: 9px;
-	padding-top: 9px;
-	font-size: 16px;
-	line-height: normal;
-}
-
-.switch span {
+.toggle-switch span {
 	cursor: pointer;
 	display: inline-block;
 	float: left;
@@ -60,70 +20,49 @@
 	line-height: 20px;
 	padding: 4px;
 	text-align: center;
-	width: 33.333333333%;
+	width: 33%;
 	white-space: nowrap;
-
-	box-sizing: border-box;
-	-o-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
 }
 
-.switch > div {
+.toggle-switch > div {
 	position: relative;
 	width: 150%;
 }
 
-.switch .knob {
-	text-align: center;
-	margin-top: -1px;
-	margin-bottom: -1px;
+.toggle-switch .knob {
+	background: red;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	background-color: #f5f5f5;
+	width: 34%;
 	z-index: 100;
-	width: 33.333333333%;
-	color: #333333;
-	background: #ffffff;
 }
 
-.switch .switch-on {
+.toggle-switch .switch-on {
 	left: 0%;
 }
 
-.switch .switch-off {
-	left: -50%;
+.toggle-switch .switch-off {
+	left: -50%
 }
 
-.switch .swtich-left, .switch .switch-right {
+.toggle-switch .switch-left, .toggle-switch .switch-right {
 	z-index: 1;
 }
 
-.switch-animate {
+.toggle-switch .switch-left {
+	color: #fff;
+	background: #005fcc;
+}
+
+.toggle-switch .switch-right {
+	color: #333;
+	background: #f0f0f0;
+}
+
+.toggle-switch-animate {
 	transition: left 0.5s;
 	-o-transition: left 0.5s;
 	-moz-transition: left 0.5s;
 	-webkit-transition: left 0.5s;
-}
-
-.switch > div > span.switch-primary {
-	color: #fff;
-	background: #428bca;
-}
-.switch > div > span.switch-info {
-	color: #fff;
-	background: #5bc0de;
-}
-.switch > div > span.switch-success {
-	color: #fff;
-	background: #5cb85c;
-}
-.switch > div > span.switch-warning {
-	background: #f0ad4e;
-	color: #fff;
-}
-.switch > div > span.switch-danger {
-	color: #fff;
-	background: #d9534f;
-}
-.switch > div > span.switch-default {
-	color: #000;
-	background: #eeeeee;
 }
