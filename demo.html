@@ -11,8 +11,9 @@
 		angular.module('demo', ['toggle-switch']);
 
 		function ctrl($scope) {
-			$scope.save = function() {
+			$scope.save = function(data) {
 				console.log('saved! ' + $scope.someModel);
+				console.log(data)
 			};
 		};
 	</script>
@@ -24,19 +25,19 @@
 			<form name="form" ng-controller="ctrl">
 				<div>{{someModel}}</div>
 				<div>
-					<toggle-switch class="switch-xs" ng-model="someModel" on-label="Sim" off-label="Não" on-after-change="save()"><toggle-switch>
+					<toggle-switch class="switch-xs" ng-model="someModel" on-label="Sim" off-label="Não" on-after-change="save($data)"></toggle-switch>
 				</div>
 				<br>
 				<div>
-					<toggle-switch class="switch-sm" ng-model="someModel" on-label="Sim" off-label="Não" on-color="success" off-color="danger"><toggle-switch>
+					<toggle-switch class="switch-sm" ng-model="someModel" on-label="Sim" off-label="Não"></toggle-switch>
 				</div>
 				<br>
 				<div>
-					<toggle-switch ng-model="someModel" on-label="Sim" off-label="Não"><toggle-switch>
+					<toggle-switch ng-model="someModel" on-label="Sim" off-label="Não"></toggle-switch>
 				</div>
 				<br>
 				<div>
-					<toggle-switch class="switch-lg" ng-model="someModel" on-label="Sim" off-label="Não" disabled="true"><toggle-switch>
+					<toggle-switch class="switch-lg" ng-model="someModel" on-label="Sim" off-label="Não" disabled="true"></toggle-switch>
 				</div>
 
 			</form>

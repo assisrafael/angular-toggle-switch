@@ -45,9 +45,9 @@ angular.module('toggle-switch', [])
 					scope.model = !scope.model;
 					ngModelCtrl.$setViewValue(scope.model);
 
-					if(typeof scope.onAfterChange === 'function') {
-						scope.onAfterChange(scope.model);
-					}
+					scope.onAfterChange({
+						$data: scope.model
+					});
 				}
 			};
 		}
